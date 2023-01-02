@@ -15,7 +15,7 @@ export const copyToClipboard = async (
   let textToCopy = text;
 
   if (!textToCopy) {
-    snackbar.show('Nothing to copy.',{color:'danger',timeout: 1500});
+    snackbar.show('Nothing to copy.', { color: 'danger', timeout: 1500 });
     return false;
   }
 
@@ -40,7 +40,7 @@ export const copyToClipboard = async (
     snackbar.show(message);
     return true;
   } catch (error) {
-    snackbar.show('Could not copy to clipboard.',{color:'danger',timeout: 1500});
+    snackbar.show('Could not copy to clipboard.', { color: 'danger', timeout: 1500 });
     return false;
   }
 };
