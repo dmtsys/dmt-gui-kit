@@ -22,7 +22,7 @@ export const copyToClipboard = async (
   if (navigator.clipboard) {
     try {
       await navigator.clipboard.writeText(textToCopy);
-      snackbar.show(message);
+      snackbar.show(message, { timeout: 3000 });
       return true;
     } catch (error) {
       // let's try the fallback below
@@ -37,7 +37,7 @@ export const copyToClipboard = async (
     input.select();
     document.execCommand('copy');
     document.body.removeChild(input);
-    snackbar.show(message);
+    snackbar.show(message, { timeout: 3000 });
     return true;
   } catch (error) {
     snackbar.show('Could not copy to clipboard.', { color: 'danger', timeout: 1500 });
