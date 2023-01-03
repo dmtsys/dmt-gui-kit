@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export type SnackOpts = { color: 'normal' | 'danger'; timeout: number }
+export type SnackOpts = { color?: 'normal' | 'danger'; timeout?: number }
 
 function createSnackStore() {
 	const { subscribe, update, set } = writable<{
