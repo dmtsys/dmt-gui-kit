@@ -6,3 +6,4 @@ export { default as SnackBar } from '$lib/components/SnackBar.svelte';
 
 export { default as logStore } from '$lib/store/logStore';
 export * from '$lib/store/snack';
+export * from '$lib/utils/index';
