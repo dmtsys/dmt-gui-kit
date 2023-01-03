@@ -3,22 +3,30 @@
 	import { snackbar } from '$lib/store/snack';
 	import XIcon from '$lib/icons/XIcon.svelte';
 	import Colors from './Colors.svelte';
+	import { browser } from '$app/environment';
+
+	let klass = '';
+	export { klass as class };
+
+	let upSmallScreen = false;
+
+	$: sm = browser && upSmallScreen ? innerWidth <= 768 : false;
 </script>
 
 {#key $snackbar}
 	<div
-		in:fly={{ delay: 10, y: 48, duration: 500 }}
-		out:fly={{ delay: 10, y: 48, duration: 500 }}
+		in:fly={{ delay: 10, y: sm ? -48 : 48, duration: 500 }}
+		out:fly={{ delay: 10, y: sm ? -48 : 48, duration: 500 }}
 		id="snackbar"
 		class:show={$snackbar}
 		class="snackbar"
 	>
 		<div class="message">
-			<span class:danger={$snackbar?.color === 'danger'}>{$snackbar?.message}</span>
-			<button class="active:scale-75" on:click={snackbar.close}><XIcon size="1x" /></button>
+			<span class:danger={$snackbar?.color === 'danger'} class={klass}>{$snackbar?.message}</span>
+			<button on:click={snackbar.close}><XIcon size="17" /></button>
 		</div>
 	</div>
-	<Colors/>
+	<Colors />
 {/key}
 
 <style>
@@ -46,6 +54,7 @@
 		padding: 1rem;
 		align-items: flex-start;
 		display: flex !important;
+		gap: 20px;
 		justify-content: space-between;
 	}
 
@@ -55,5 +64,18 @@
 
 	.danger {
 		color: var(--dmt-red);
+	}
+	button {
+		display: grid;
+		place-items: center;
+		padding: 0;
+		margin: 0;
+		color: #fff;
+		background: transparent;
+		border: transparent;
+		cursor: pointer;
+	}
+	button:active {
+		transform: scale(0.75);
 	}
 </style>

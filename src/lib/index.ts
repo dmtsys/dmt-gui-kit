@@ -5,4 +5,4 @@ export { default as GuiErrors } from '$lib/components/GuiErrors.svelte';
 export { default as SnackBar } from '$lib/components/SnackBar.svelte';
 
 export { default as logStore } from '$lib/store/logStore';
-export { snackbar } from '$lib/store/snack';
+export * from '$lib/store/snack';
