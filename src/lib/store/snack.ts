@@ -1,23 +1,31 @@
 import { writable } from 'svelte/store';
 
+export type SnackOpts = { color: 'normal' | 'danger'; timeout: number }
+
 function createSnackStore() {
 	const { subscribe, update, set } = writable<{
 		message: string;
-		color: 'success' | 'danger';
+		color: SnackOpts['color'];
 	} | null>(null);
 
+	let timeoutId: NodeJS.Timeout | undefined
+
+	const close = () => {
+		clearTimeout(timeoutId)
+		set(null)
+	}
 	return {
 		subscribe,
 		show: (
 			value: string,
-			{ color = 'success', timeout = 8000 } = {} as { color: 'success' | 'danger'; timeout: number }
+			{ color = 'normal', timeout = 8000 } = {} as SnackOpts
 		) =>
-			// color : "success"|'danger'
 			update(() => {
-				setTimeout(() => set(null), timeout);
+				close()
+				timeoutId = setTimeout(close, timeout);
 				return { message: value, color };
 			}),
-		close: () => set(null)
+		close
 	};
 }
 export const snackbar = createSnackStore();

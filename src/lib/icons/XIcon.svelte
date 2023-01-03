@@ -13,7 +13,7 @@
 	xmlns="http://www.w3.org/2000/svg"
 	width={size}
 	height={size}
-	fill="none"
+	fill="currentColor"
 	viewBox="0 0 24 24"
 	stroke="currentColor"
 	stroke-width={strokeWidth}
