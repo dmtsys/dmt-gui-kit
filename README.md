@@ -1,14 +1,13 @@
 # DMT GUI KIT
 
-Svelte components and helper utilities used from DMT GUI, [DMT MOBILE](https://github.com/dmtsys/dmt-mobile) and other [DMT APPS](https://github.com/uniqpath/dmt/blob/main/help/DMT_APPS_SVELTE.md).
+Svelte components and helper utilities used from DMT GUI, DMT MOBILE and other [DMT APPS](https://github.com/uniqpath/dmt/blob/main/help/DMT_APPS_SVELTE.md).
 
 Use `npm run build` or `pnpm build` to produce the bundle.
 
-Bundle ships with [DMT ENGINE](https://github.com/uniqpath/dmt/tree/main/core/lib/dmt-gui-kit) as well and this is how DMT MOBILE [imports it](https://github.com/dmtsys/dmt-mobile/blob/main/package.json):
+Bundle ships with [DMT ENGINE](https://github.com/uniqpath/dmt) and this is an example of how to import it in `package.json`:
 
-```
+```json
 "dependencies": {
-  "connectome": "~/.dmt/core/node/connectome",
-  "dmt-gui-kit": "~/.dmt/core/lib/dmt-gui-kit"
+    "dmt-gui-kit": "~/.dmt/core/lib/dmt-gui-kit"
 }
 ```
