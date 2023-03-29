@@ -3,14 +3,13 @@
 	import { snackbar } from '$lib/store/snack';
 	import XIcon from '$lib/icons/XIcon.svelte';
 	import Colors from './Colors.svelte';
-	import { browser } from '$app/environment';
 
 	let klass = '';
 	export { klass as class };
 
 	let upSmallScreen = false;
 
-	$: sm = browser && upSmallScreen ? innerWidth <= 768 : false;
+	$: sm = typeof window != 'undefined' && upSmallScreen ? innerWidth <= 768 : false;
 </script>
 
 {#key $snackbar}
