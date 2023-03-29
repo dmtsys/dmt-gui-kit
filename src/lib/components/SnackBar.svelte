@@ -2,7 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import { snackbar } from '$lib/store/snack';
 	import XIcon from '$lib/icons/XIcon.svelte';
-	import Colors from './Colors.svelte';
+	// import Colors from './Colors.svelte';
 	import { browser } from '$app/environment';
 
 	let klass = '';
