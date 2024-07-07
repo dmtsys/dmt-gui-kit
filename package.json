@@ -1,6 +1,6 @@
 {
 	"name": "dmt-gui-kit",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -45,7 +45,7 @@
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
+			"default": "./dist/index.js"
 		},
 		"./colors.css": {
 			"default": "./dist/colors.css"
@@ -66,5 +66,5 @@
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"type": "module",
-	"packageManager": "bun@1.1.4"
+	"packageManager": "bun@1.1.18"
 }

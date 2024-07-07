@@ -1,4 +1,4 @@
-import { snackbar } from '$lib/store/snack';
+import { snackbar } from '$lib/store/snack.js';
 
 /**
  *

@@ -1,4 +1,4 @@
-import { snackbar } from '../store/snack';
+import { snackbar } from '../store/snack.js';
 /**
  *
  * @param text Text to copy.

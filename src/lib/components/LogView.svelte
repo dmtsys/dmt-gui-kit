@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import logStore from '../store/logStore';
 
 	// export let store;

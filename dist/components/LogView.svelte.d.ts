@@ -1,25 +1,9 @@
-/** @typedef {typeof __propDef.props}  LogViewProps */
-/** @typedef {typeof __propDef.events}  LogViewEvents */
-/** @typedef {typeof __propDef.slots}  LogViewSlots */
-export default class LogView extends SvelteComponent<{
-    title: any;
-    showLogInitially?: boolean | undefined;
-    limit?: number | undefined;
-}, {
-    [evt: string]: CustomEvent<any>;
-}, {
-    default: {};
-}> {
-}
-export type LogViewProps = typeof __propDef.props;
-export type LogViewEvents = typeof __propDef.events;
-export type LogViewSlots = typeof __propDef.slots;
 import { SvelteComponent } from "svelte";
 declare const __propDef: {
     props: {
+        showLogInitially?: boolean;
         title: any;
-        showLogInitially?: boolean | undefined;
-        limit?: number | undefined;
+        limit?: number;
     };
     events: {
         [evt: string]: CustomEvent<any>;
@@ -27,7 +11,12 @@ declare const __propDef: {
     slots: {
         default: {};
     };
-    exports?: undefined;
-    bindings?: undefined;
+    exports?: {} | undefined;
+    bindings?: string | undefined;
 };
+export type LogViewProps = typeof __propDef.props;
+export type LogViewEvents = typeof __propDef.events;
+export type LogViewSlots = typeof __propDef.slots;
+export default class LogView extends SvelteComponent<LogViewProps, LogViewEvents, LogViewSlots> {
+}
 export {};

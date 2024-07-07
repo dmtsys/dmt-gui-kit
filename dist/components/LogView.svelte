@@ -1,40 +1,26 @@
-<script>
-	import logStore from '../store/logStore';
-
-	// export let store;
-	export let showLogInitially = true;
-	export let title;
-	export let limit = 0;
-
-	if (limit > logStore.LIMIT) {
-		console.log(
-			`Warning: provided LogView line limit (${limit}) is larger than logStore limit  (${logStore.LIMIT})`
-		);
-		console.log(`Utilizing the lower value ...`);
-		limit = logStore.LIMIT;
-	}
-
-	let showLog = showLogInitially;
-	//let showLog = false;
-
-	$: logEntries = $logStore.slice(-limit).reverse();
-
-	let lastCheckAt;
-
-	// accurate to ~500ms
-	function detectContextSwitch() {
-		const now = Date.now();
-
-		if (lastCheckAt && now - lastCheckAt > 500) {
-			logStore.log('——— Context switch / App wake ———', { dedup: true });
-		}
-
-		lastCheckAt = now;
-
-		setTimeout(detectContextSwitch, 300);
-	}
-
-	detectContextSwitch();
+<script>import logStore from "../store/logStore";
+export let showLogInitially = true;
+export let title;
+export let limit = 0;
+if (limit > logStore.LIMIT) {
+  console.log(
+    `Warning: provided LogView line limit (${limit}) is larger than logStore limit  (${logStore.LIMIT})`
+  );
+  console.log(`Utilizing the lower value ...`);
+  limit = logStore.LIMIT;
+}
+let showLog = showLogInitially;
+$: logEntries = $logStore.slice(-limit).reverse();
+let lastCheckAt;
+function detectContextSwitch() {
+  const now = Date.now();
+  if (lastCheckAt && now - lastCheckAt > 500) {
+    logStore.log("\u2014\u2014\u2014 Context switch / App wake \u2014\u2014\u2014", { dedup: true });
+  }
+  lastCheckAt = now;
+  setTimeout(detectContextSwitch, 300);
+}
+detectContextSwitch();
 </script>
 
 <div class="logview">
