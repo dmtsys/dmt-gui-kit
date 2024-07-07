@@ -1,15 +1,11 @@
-<script lang="ts">
-	import { fly } from 'svelte/transition';
-	import { snackbar } from '$lib/store/snack';
-	import XIcon from '$lib/icons/XIcon.svelte';
-	import { browser } from '$lib/environment';
-
-	let klass = '';
-	export { klass as class };
-
-	let upSmallScreen = false;
-
-	$: sm = browser && upSmallScreen ? innerWidth <= 768 : false;
+<script>import { fly } from "svelte/transition";
+import { snackbar } from "../store/snack";
+import XIcon from "../icons/XIcon.svelte";
+import { browser } from "../environment";
+let klass = "";
+export { klass as class };
+let upSmallScreen = false;
+$: sm = browser && upSmallScreen ? innerWidth <= 768 : false;
 </script>
 
 {#key $snackbar}
