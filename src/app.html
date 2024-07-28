@@ -1,35 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		%sveltekit.head%
+		<style>
+			body {
+				background: rgb(29, 28, 45);
+				background: linear-gradient(180deg, rgba(29, 28, 45, 1) 0%, rgba(73, 71, 101, 1) 100%);
+				background-size: cover;
+				background-attachment: fixed;
+				color: var(--dmt-cyan);
+				margin: 0 !important;
+			}
 
-<head>
-	<meta charset="utf-8" />
-	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-	<meta name="viewport" content="width=device-width" />
-	%sveltekit.head%
-	<style>
-		body {
-			background: rgb(29, 28, 45);
-			background: linear-gradient(180deg, rgba(29, 28, 45, 1) 0%, rgba(73, 71, 101, 1) 100%);
-			background-size: cover;
-			background-attachment: fixed;
-			color: var(--dmt-cyan);
-			margin: 0 !important;
-		}
+			button:active {
+				transform: scale(0.95);
+			}
 
-		button:active {
-			transform: scale(0.95);
-		}
+			.box {
+				border: 2px solid var(--dmt-blue);
+				width: min-content;
+				padding: 15px;
+			}
+		</style>
+	</head>
 
-		.box {
-			border: 2px solid var(--dmt-blue);
-			width: min-content;
-			padding: 15px;
-		}
-	</style>
-</head>
-
-<body>
-	<div>%sveltekit.body%</div>
-</body>
-
+	<body>
+		<div>%sveltekit.body%</div>
+	</body>
 </html>

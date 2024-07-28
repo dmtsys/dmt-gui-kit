@@ -1,12 +1,25 @@
-import { writable } from 'svelte/store';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { writable, type Writable } from 'svelte/store';
 
-const logStore = writable([]);
+type LogStore = Writable<
+	{
+		entry: any;
+		createdDate: Date;
+		createdAt: number;
+		isRecent: boolean;
+		isVeryRecent: boolean;
+	}[]
+> & {
+	LIMIT: number;
+	log: (args: any, options?: { dedup?: boolean }) => void;
+};
+const logStore = writable([]) as unknown as LogStore;
 
 export default logStore;
 
 logStore.LIMIT = 300;
 
-logStore.log = (args, { dedup = false } = {}) => {
+logStore.log = (args: any, { dedup = false } = {}) => {
 	logStore.update((state) => {
 		if (dedup && state.length > 0 && state[state.length - 1].entry == args) {
 			state.pop();
